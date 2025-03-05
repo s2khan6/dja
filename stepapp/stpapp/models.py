@@ -34,5 +34,18 @@ class Job(models.Model):
 
 	def __str__(self):
 		return self.title
+	
+
+class Vacancy(models.Model):
+	title = models.CharField("Заголовок", max_length=255)
+	description = models.TextField("Описание")
+	company = models.CharField("Название компании", max_length=80)
+	location = models.CharField("Местоположение", max_length=255)
+	data_posted = models.DateField("Дата публикации", auto_now_add=True)
+
+
+
+	def __str__(self):
+		return self.title
 # Create your models here.
 
