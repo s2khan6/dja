@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static './css/styles.css' %}" />
+</head>
+<body>
+	<div class="register-container">
+        <a href="{% url 'index_page' %}" class="back-button">&#8592; Назад</a>
+        <h2>Создать профиль по email</h2>
+        <form>
+            <input type="email" placeholder="example@mail.com" class="input-field" required>
+          
+            <button type="submit" class="btn">Продолжить</button>
+        </form>
+        <div class="divider">
+            <span>или</span>
+        </div>
+        <button class="btn google-btn">&#128279; Создать профиль с Google</button>
+        <p class="info-text">Ваши данные будут обрабатываться в соответствии с нашей <a href="#">Политикой конфиденциальности</a> и <a href="#">Условиями пользования</a>.</p>
+        <p class="login-link">Есть профиль на VacancyAlmaty.kz? <a href="#"> 	Войдите</a></p>
+    </div>
+</body>
+</html>

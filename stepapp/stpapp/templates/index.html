@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Поиск вакансий</title>
+    <link rel="stylesheet" href="{% static './css/style.css' %}" />
+    <script defer src="script.js"></script>
+	<header>
+        <div class="logo">
+            <!-- <img src="logo.png" alt="Логотип" height="40"> -->
+            <img src="{% static './image/logo.png' %}" alt="Логотип" height="40">
+        </div>
+        <input type="text" id="search" placeholder="Я ищу вакансию...">
+        <button onclick="searchJobs()">🔍</button>
+    </header>
+    <main>
+        <aside class="left-panel">
+            <button id="register" class="btn" >
+				<a href="{% url 'registr_page' %}">Зарегистрироваться</a>
+			</button>
+            <button id="login" class="btn">
+                <a href="{% url 'registr_page' %}">Войти</a>
+                </button>
+            <button id="employer" class="btn">
+				<a href="{% url 'about_page' %}">О компании</a>
+			</button>
+            <h3>Меню</h3>
+            <ul>
+                <li>Поиск вакансий</li>
+                <li>Избранное</li>
+                <li>Создать резюме <span class="new">Новое</span></li>
+                <li>Подписки</li>
+            </ul>
+            <div class="apps">
+                <p>Не пропускайте новые вакансии в приложении</p>
+                <button class="app-btn">Google Play</button>
+                <button class="app-btn">App Store</button>
+            </div>
+        </aside>
+        <section id="job-results">
+            <h2>Найденные вакансии</h2>
+            <h1>Список вакансий</h1>
+            <a href="{% url 'vacancy_create' %}">Добавить вакансию</a>
+            <ul>
+              {% for vacancy in vacancies %}
+              <li>
+                <a href="{% url 'vacancy_detail' vacancy.pk %}">{{ vacancy.title }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+            <h2>Дополнительные вакансии</h2>
+            <ul>
+              {% for job in jobs %}
+              <li>
+                <strong>{{ job.title }}</strong> - {{ job.company }} ({{ job.salary }})
+              </li>
+              {% endfor %}
+            </ul>
+            <div id="jobs"></div>
+        </section>
+        <aside class="right-panel">
+            <h3>Новые вакансии для тебя!</h3>
+            <p>Подпишитесь на рассылку и получайте новые вакансии.</p>
+            <input type="email" placeholder="example@mail.com">
+            <button class="btn">Подписаться</button>
+        </aside>
+    </main>
+	<footer>
+		<p>&copy; 2025 VacancyAlmaty. Все права защищены.</p>
+	  </footer>
+  </body>
+</html>

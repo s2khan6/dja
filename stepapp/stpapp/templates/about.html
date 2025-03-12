@@ -1,22 +1,57 @@
-{%load static%}
+{% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static './css/style.css' %}" />
-
-    <title>About page</title>
+    <title>О компании</title>
+    <link rel="stylesheet" href="{% static './css/about.css' %}" />
   </head>
   <body>
-    <header class="header">
-      <div class="header-inners">
-        <a href="{% url 'home_page'%}">Home</a>
-        <a href="{% url 'about_page'%}">About</a>
-        <a href="{% url 'content_page'%}">Content</a>
-      </div>
+    <header>
+      <a href="{% url 'index_page' %}" class="back-button">&#8592; Назад</a>
+      <h1>О компании</h1>
     </header>
+    <section class="about">
+      <h2>О компании</h2>
+      <p>
+        VacancyAlmaty — это народный сайт по поиску работы, которым ежедневно
+        пользуются миллионы людей из Казахстана .
+      </p>
+      <p>
+        Компания работает на рынке интернет-рекрутинга с 2024 года. За время
+        своего существования компания прошла путь от стартапа, основанного двумя
+        студентами, к глобальной платформе по трудоустройству. Сегодня
+        VacancyAlmaty входит в ТОП-10 сайтов по посещаемости в Азии в сегменте
+        Jobs And Employment (по данным SimilarWeb).
+      </p>
+    </section>
+    <section class="mission">
+      <h2>Миссия VacancyAlmaty — помогать людям находить работу</h2>
+      <p>
+        Компания постоянно работает над тем, чтобы процесс трудоустройства был
+        максимально комфортным и быстрым, как для соискателя, так и для
+        работодателя.
+      </p>
+      <div class="stats">
+        <div>
+          <h3>2024 год</h3>
+          <p>основания</p>
+        </div>
+        <div>
+          <h3>1 млрд</h3>
+          <p>визитов ежегодно</p>
+        </div>
+        <div>
+          <h3>10</h3>
+          <p>стран мира</p>
+        </div>
+        <div>
+          <h3>7</h3>
+          <p>рабочих языков</p>
+        </div>
+      </div>
+    </section>
   </body>
-  <main>About</main>
 </html>
